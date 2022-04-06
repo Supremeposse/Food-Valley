@@ -1,5 +1,5 @@
 import axios from 'axios';
-const LOGIN_USER_KEY = 'WD_FORUM_LOGIN_USER_KEY';
+const LOGIN_USER_KEY = 'LOGIN_USER_KEY';
 
 var baseURL;
 if (process.env.REACT_APP_ENVIRONMENT && process.env.REACT_APP_ENVIRONMENT === 'PRODUCTION') {
@@ -7,6 +7,7 @@ if (process.env.REACT_APP_ENVIRONMENT && process.env.REACT_APP_ENVIRONMENT === '
 } else {
     baseURL = 'http://127.0.0.1:8000';
 }
+
 
 const api = axios.create({
     baseURL: baseURL,
