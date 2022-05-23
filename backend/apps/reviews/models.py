@@ -1,5 +1,5 @@
 from django.db import models
-from apps.item.models import Item
+from apps.items.models import Item
 
 
 class Review(models.Model):

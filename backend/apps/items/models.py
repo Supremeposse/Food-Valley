@@ -1,19 +1,20 @@
-from config.constants import *
 from django.db import models
 from cloudinary.models import CloudinaryField
+from config.constants import *
 
 
 class Item(models.Model):
     class Meta(object):
         db_table = 'item'
 
-    name = models.CharField('Name', blank=False, null=False,
-                            max_length=120, db_index=True, default='anonymous')
     status = models.CharField(
-        'Status', blank=False, null=False, default='draft', max_length=50, db_index=True, choices=STATUS
+        'Status', blank=False, default='draft', max_length=50, db_index=True, choices=STATUS
+    )
+    name = models.CharField(
+        'Name', blank=False, null=False, max_length=120, db_index=True
     )
     price = models.DecimalField(
-        'Price', blank=False, null=False, max_digits=11, decimal_places=2, default=99.99
+        'Price', blank=False, null=False, max_digits=11, decimal_places=2
     )
     image = CloudinaryField(
         'image', blank=True, null=True
@@ -24,3 +25,5 @@ class Item(models.Model):
     updated_at = models.DateTimeField(
         'Updated Datetime', blank=True, auto_now=True
     )
+
+
